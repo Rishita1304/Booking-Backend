@@ -8,7 +8,7 @@ import authRoutes from './routes/auth.js'
 import roomsRoutes from './routes/rooms.js'
 import usersRoutes from './routes/users.js'
 import cors from 'cors'
-const PORT=7000||process.env.PORT;
+const PORT=8000||process.env.PORT;
 const app = express();
 dotenv.config();
 const connect = async() => {
@@ -31,6 +31,10 @@ app.use('/api/hotels', hotelsRoutes);
 app.use('/api/auth', authRoutes);
 app.use('/api/rooms', roomsRoutes);
 app.use('/api/user', usersRoutes);
+
+app.get('/', (req,res)=>{
+    res.send(`Server running on web port ${PORT}`)
+})
 app.listen(PORT, () => {
     connect();
     console.log(`Server started at ${PORT}`);
