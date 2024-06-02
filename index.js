@@ -35,6 +35,7 @@ app.use('/api/user', usersRoutes);
 app.get('/', (req,res)=>{
     res.send(`Server running on web port ${PORT}`)
 })
+
 app.listen(PORT, () => {
     connect();
     console.log(`Server started at ${PORT}`);
